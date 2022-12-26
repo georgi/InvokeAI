@@ -1,5 +1,4 @@
-# FROM nvidia/cuda:11.6.0-runtime-ubuntu22.04
-FROM nvidia/cuda:11.6.0-runtime-ubuntu20.04
+FROM nvidia/cuda:11.7.0-runtime-ubuntu22.04
 
 ENV USE_TORCH=1
 ENV PYTHONPATH=.
@@ -29,8 +28,6 @@ RUN chmod +x ~/anaconda.sh && \
     bash ~/anaconda.sh -b -p /opt/conda && \
     rm ~/anaconda.sh
 RUN /opt/conda/bin/conda update -n base -c defaults conda
-# RUN /opt/conda/bin/conda install -y pytorch torchvision torchaudio pytorch-cuda=11.6 -c pytorch -c nvidia && \
-#     /opt/conda/bin/conda clean -ya
 
 COPY . .
 
