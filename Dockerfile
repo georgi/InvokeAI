@@ -31,7 +31,7 @@ RUN /opt/conda/bin/conda update -n base -c defaults conda
 
 COPY . .
 
-RUN python -m pip install -r requirements.txt --extra-index-url https://download.pytorch.org/whl/cu116
+RUN python -m pip install -r requirements.txt
 RUN python -m pip install -e .
 
 # build patchmatch
