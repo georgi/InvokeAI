@@ -51,7 +51,4 @@ RUN python -c "from patchmatch import patch_match"
 ## workaround for non-existent initfile when runtime directory is mounted; see #1613
 RUN touch /root/.invokeai
 
-RUN useradd -m invokeai
-WORKDIR /home/invokeai
-
 CMD ["-c", "python3 scripts/invoke.py --web --host 0.0.0.0"]
