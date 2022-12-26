@@ -29,12 +29,12 @@ RUN chmod +x ~/anaconda.sh && \
     bash ~/anaconda.sh -b -p /opt/conda && \
     rm ~/anaconda.sh
 RUN /opt/conda/bin/conda update -n base -c defaults conda
-RUN /opt/conda/bin/conda install -y pytorch torchvision torchaudio pytorch-cuda=11.6 -c pytorch -c nvidia && \
-    /opt/conda/bin/conda clean -ya
+# RUN /opt/conda/bin/conda install -y pytorch torchvision torchaudio pytorch-cuda=11.6 -c pytorch -c nvidia && \
+#     /opt/conda/bin/conda clean -ya
 
 COPY . .
 
-RUN python -m pip install -r requirements.txt
+RUN python -m pip install -r requirements.txt --extra-index-url https://download.pytorch.org/whl/cu116
 RUN python -m pip install -e .
 
 # build patchmatch
