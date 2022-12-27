@@ -23,15 +23,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 # This is needed for patchmatch support
 RUN cd /usr/lib/x86_64-linux-gnu/pkgconfig/ &&\
    ln -sf opencv4.pc opencv.pc
-#
-# ENV PATH /opt/conda/bin:$PATH
-#
-# RUN curl -fsSL -v -o ~/anaconda.sh -O "https://repo.anaconda.com/archive/Anaconda3-2022.10-Linux-x86_64.sh"
-# RUN chmod +x ~/anaconda.sh && \
-#     bash ~/anaconda.sh -b -p /opt/conda && \
-#     rm ~/anaconda.sh
-# RUN /opt/conda/bin/conda update -n base -c defaults conda
-
 
 ARG WORKDIR=/invokeai
 WORKDIR ${WORKDIR}
