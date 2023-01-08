@@ -28,7 +28,7 @@ ARG WORKDIR=/invokeai
 WORKDIR ${WORKDIR}
 
 ENV VIRTUAL_ENV=${WORKDIR}/.venv
-ENV PATH="$VIRTUAL_ENV/bin:$PATH"
+ENV PATH="${VIRTUAL_ENV}/bin:$PATH"
 
 COPY . .
 
@@ -42,4 +42,4 @@ RUN python -c "from patchmatch import patch_match"
 ## workaround for non-existent initfile when runtime directory is mounted; see #1613
 RUN touch /root/.invokeai
 
-CMD ["-c", "python3 scripts/invoke.py --web --host 0.0.0.0"]
+# CMD ["python3", "scripts/invoke.py", "--web",  "--host 0.0.0.0"]
